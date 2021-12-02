@@ -1,0 +1,26 @@
+server:
+  port: 9200
+   
+spring:
+  cloud:
+    gateway:
+      routes:
+        #Route Mapping
+      - id: moviecatalog              #RouteIdentifier
+        uri: http://localhost:9000/         #Respective microservice URL which needs to be mapped
+         #Request Context Path Mapping
+        predicates:
+        - Path=/catalog/**          
+        
+        #Route Mapping - With out Filters - Version 2 Request
+      - id: movieinfo
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/movies/**
+        
+        #Route Mapping - With out Filters - Version 2 Request
+      - id: ratingsdata
+        uri: http://localhost:8085/
+        predicates:
+        - Path=/ratingsdata/**
+    

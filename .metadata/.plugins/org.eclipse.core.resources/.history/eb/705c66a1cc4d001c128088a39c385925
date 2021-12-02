@@ -1,0 +1,9 @@
+package com.tell.inter;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.tell.model.Movie;
+
+public interface MovieRepository extends MongoRepository<Movie, String> {
+
+}

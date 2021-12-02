@@ -1,0 +1,13 @@
+package com.tell;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EurekaWithApiGatewayApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EurekaWithApiGatewayApplication.class, args);
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.tell.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.tell.model.CropDetails;
+public interface CropService {
+	
+	public List<CropDetails> getAll();
+	public Optional<CropDetails> getCropDetailsById( String id);
+	public String deleteCropDetails( String id);
+	public String updateCropDetails( CropDetails cropdetails,  String id);
+	public Optional<CropDetails> getCropDetailsByName( String cropName);
+	public CropDetails createCropDetails(CropDetails cropdetails);
+	void updateCropDetails(int id, CropDetails cropDetails);
+	public boolean isCropDetailsExist(int id);
+	public void updateEmployee(int id, CropDetails cropDetails);
+
+}

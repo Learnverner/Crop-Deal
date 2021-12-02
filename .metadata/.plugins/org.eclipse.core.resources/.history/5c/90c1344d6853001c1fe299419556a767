@@ -1,0 +1,5 @@
+package com.tell.exceptions;
+
+public class CropDetailsNotFoundException extends Exception {
+
+}

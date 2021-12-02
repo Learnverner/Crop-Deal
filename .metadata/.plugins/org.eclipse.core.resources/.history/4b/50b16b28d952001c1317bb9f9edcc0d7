@@ -1,0 +1,52 @@
+package com.tell.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.tell.model.Cart;
+import com.tell.services.CartServiceImpl;
+
+
+@RestController
+@RequestMapping("/cart")
+public class CartController {
+	
+ @Autowired
+ CartServiceImpl cartServiceImpl;
+ 
+ @GetMapping("/getcartbyid/{cartId}")
+ public Cart getCartById(@PathVariable int cartId) {
+	 return cartServiceImpl.getCartById(cartId);
+ }
+ 
+ 
+ @PutMapping("/updatecart")
+ public Cart updateCart(@RequestBody Cart cart) {
+	 return cartServiceImpl.updateCart(cart);
+ }
+ 
+ 
+ @GetMapping("/getallcart") 
+ public List<Cart>getAllCarts(){
+	 return cartServiceImpl.getAllCarts;
+ }
+ 
+ @GetMapping("/carttotal")
+ public double cartTotal(@RequestBody Cart cart) {
+	 return cartServiceImpl.cartTotal(cart);
+ }
+ 
+ 
+ 
+}	
+

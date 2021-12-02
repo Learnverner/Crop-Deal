@@ -1,0 +1,54 @@
+package com.tell.model;
+
+public class Crop {
+ private String cropId;	
+ private String cropName;
+ private String cropPrice;
+ private String cropDetails;
+ 
+public Crop() {
+	super();
+
+}
+
+public Crop(String cropId, String cropName, String cropPrice, String cropDetails) {
+	super();
+	this.cropId = cropId;
+	this.cropName = cropName;
+	this.cropPrice = cropPrice;
+	this.cropDetails = cropDetails;
+}
+
+public String getCropId() {
+	return cropId;
+}
+
+public void setCropId(String cropId) {
+	this.cropId = cropId;
+}
+
+public String getCropName() {
+	return cropName;
+}
+
+public void setCropName(String cropName) {
+	this.cropName = cropName;
+}
+
+public String getCropPrice() {
+	return cropPrice;
+}
+
+public void setCropPrice(String cropPrice) {
+	this.cropPrice = cropPrice;
+}
+
+public String getCropDetails() {
+	return cropDetails;
+}
+
+public void setCropDetails(String cropDetails) {
+	this.cropDetails = cropDetails;
+}
+ 
+}

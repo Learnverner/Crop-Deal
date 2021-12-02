@@ -1,0 +1,16 @@
+package com.tell.repository;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.tell.model.Crop;
+
+public interface CropRepository extends MongoRepository<Crop,String>{
+    
+	
+	List<Crop> findCropByFarmerId(String FarmerId);
+	
+	Crop findCropBycropId(String cropId);
+
+}

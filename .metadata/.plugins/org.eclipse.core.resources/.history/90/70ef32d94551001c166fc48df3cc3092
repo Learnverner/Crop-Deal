@@ -1,0 +1,58 @@
+package com.tell.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.tell.model.Crop;
+import com.tell.service.CropService;
+
+@RestController
+public class CropController {
+
+@Autowired
+private CropService cropService;
+
+
+@PostMapping("/addCrop/{farmerId}")
+public String addCrop(@PathVariable String farmerId,@RequestBody Crop crop) {
+	crop.setFarmerId(farmerId);
+	if(cropService.addCrop(crop))
+		return ("Added Crop with id"+crop.getCropId()+" with farmer id" + farmerId);
+	else
+		return("there was an error in adding the crop");
+	
+}
+
+@RequestMapping("/getall")
+public List<Crop> getAllCrops(){
+	
+	return cropService.getAllCrop();
+}
+
+@GetMapping("/getall/{farmerId}")
+public List<Crop> getAllCropsByFarmer(@PathVariable String farmerId){
+	
+	return cropService.getAllCropByFarmer(farmerId);
+}
+
+@DeleteMapping("/delete/{cropId}")
+public Boolean deleteCrop(@PathVariable String cropId) {
+	return cropService.deleteCrop(cropId);
+}
+
+@PutMapping("/update/{cropId}")
+public String updateByFarmer(@PathVariable String cropId,@RequestBody Crop crop){
+	crop.setCropId(cropId);
+	return cropService.updateCrop(crop);
+	
+}
+}

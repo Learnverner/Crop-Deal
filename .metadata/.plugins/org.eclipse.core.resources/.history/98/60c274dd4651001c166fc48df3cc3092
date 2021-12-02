@@ -1,0 +1,46 @@
+package com.tell.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.tell.model.Crop;
+import com.tell.repository.CropRepository;
+
+@Service
+public class CropService {
+	@Autowired
+	CropRepository cropRepository;
+	
+	//save the information about crop
+	public Crop save(Crop crop) {
+		Crop c=cropRepository.save(crop);
+		return c;
+		}
+
+	//find all the details
+	public List<Crop> getAll() {
+		
+		return cropRepository.findAll();
+	}
+
+	//find crop by id
+	public Optional<Crop> getAllCropById(String id) 
+	{
+		return cropRepository.findById(id);
+	}
+
+	//Delete crop by id
+	public String deleteCrop(String id) {
+		cropRepository.deleteById(id);
+		return "Delete CropDetails with id:"+id;
+		
+		
+	}
+
+	public String updateCrop(Crop crop) {
+		cropRepository.save(crop);
+		return "Crop Updated Successfully";
+	}
+}

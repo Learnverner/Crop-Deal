@@ -1,0 +1,27 @@
+package com.tell.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.tell.model.Crop;
+import com.tell.repository.CropRepository;
+
+@RestController
+public class CropController {
+@Autowired
+private CropRepository repo;
+
+
+@PostMapping("/add")
+public Crop addCrop(@RequestBody Crop c) {
+
+    Crop c1= repo.save(c);
+	return c1;
+	
+}
+
+
+}

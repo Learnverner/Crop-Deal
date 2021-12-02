@@ -1,0 +1,87 @@
+package com.tell.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.tell.model.CropDetails;
+import com.tell.repository.CropDetailsRepository;
+
+
+@Service
+public class CropServiceImpl implements CropService{
+	@Autowired
+	private CropDetailsRepository cropDetailsRepository ;
+	
+	//save the cropdetails
+		@Override
+		public CropDetails createCropDetails( CropDetails cropDetails) {
+			return cropDetailsRepository.createCropDetails(cropDetails);
+	}
+
+		
+		
+		//find all cropdetails
+		@Override
+		public List<CropDetails> getAll(){
+			return cropDetailsRepository.findAll();
+		}
+		
+		//find the cropdetails by id
+		@Override
+		public Optional<CropDetails> getCropDetailsById(String id){
+			return cropDetailsRepository.findById(id);
+		}
+		
+		//delete the cropdetails by id
+		@Override 
+		public String deleteCropDetails( String id) {
+			cropDetailsRepository.deleteById(id);
+			 return "Delete cropdetails with id: "+id;
+		}
+		
+		//update the cropdetails by id
+		@Override
+		public void updateCropDetails(int id, CropDetails cropDetails)
+		{
+			cropDetailsRepository.updateCropDetails(id, cropDetails);
+		}
+		
+		
+		@Override
+		public Optional<CropDetails>getCropDetailsByName(String cropName){
+			return cropDetailsRepository.findByCropName( cropName);
+		}
+
+
+
+		@Override
+		public String updateCropDetails(CropDetails cropdetails, String id) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
+		@Override
+		public boolean isCropDetailsExist(int id) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+
+
+		@Override
+		public void updateEmployee(int id, CropDetails cropDetails) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		
+		
+		
+}

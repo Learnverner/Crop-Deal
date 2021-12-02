@@ -1,0 +1,8 @@
+package com.tell.exceptions;
+
+public class CropDetailsNotFoundException extends  RuntimeException {
+
+	
+	private static final long serialVersionUID = 1L;
+
+}

@@ -1,0 +1,16 @@
+package com.tell.service;
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tell.model.CropDetails;
+@Service
+public class CropService {
+	public CropDetails save( CropDetails crop);
+	public List<CropDetails> getAll();
+	public Optional<CropDetails> getCropById( int id);
+	public String deleteCrop( int id);
+	public String updateCrop( CropDetails crop,  int id);
+}

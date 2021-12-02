@@ -1,0 +1,46 @@
+package com.tell.contact;
+
+public class Contact{
+
+	
+	Long phoneNum;
+	String name , gmail;
+	String gen;
+	
+	
+	Contact( String name , String gmail, String gen ){
+		
+		this.name=name;
+		this.gmail=gmail;
+		this.gen=gen;
+		
+	}
+	
+	public void setphoneNo(Long no) {
+		this.phoneNum=no;
+		
+	}
+	public Long getphoneNo() {
+		return phoneNum;
+		
+	}
+	public void setname(String name) {
+		this.name=name;
+		}
+	public String getname() {
+		return name;
+	}
+	public void setgmail(String gmail) {
+		this.gmail=gmail;
+	}
+	public String getgmail() {
+		return gmail;
+	}
+	
+	public String toString()
+	{
+		return (name+"--"+gmail+"--"+gen);
+	}
+}
+
+

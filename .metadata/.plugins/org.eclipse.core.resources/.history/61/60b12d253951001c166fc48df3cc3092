@@ -1,0 +1,11 @@
+server:
+  port: 9200
+   
+zuul:
+   routes:
+       movie-catalog-services:
+           url: http://localhost:9000
+       movie-info-service:
+           url: http://localhost:8082
+       ratings-data-service:
+           url:http://localhost:8085           

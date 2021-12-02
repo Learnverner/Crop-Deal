@@ -1,0 +1,15 @@
+server:
+   port: 9100
+   
+   
+   
+spring:
+  cloud:
+    gateway:
+      routes:
+        #Route Mapping
+      - id: cropdetails             #RouteIdentifier
+        uri: http://localhost:9000/         #Respective microservice URL which needs to be mapped
+         #Request Context Path Mapping
+        predicates:
+        - Path=/cropdetails/**          

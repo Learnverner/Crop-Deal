@@ -1,0 +1,28 @@
+package com.tell.treemap;
+
+public class TreeMap {
+	private static final Object Contact = null;
+
+	public static void main(String[] args) {
+		
+		TreeMap t=new TreeMap();
+		
+		Contact c1=new Contact ("pranjal", "pranjaldongre123" , "male");
+		Contact c2=new Contact("shubh", "shubh123" , "male");
+		Contact c3=new Contact("abhishek", "abhiabhi153" , "male");
+		Contact c4=new Contact("ravina", "ravina1223" , "female");
+		
+		t.put(882543365,c1);
+		t.put(739463822,c2);
+		t.put(363929735,c3);
+		t.put(548393654,c4);
+		System.out.println(t);
+		
+	}
+
+	private void put(int i, com.tell.treemap.Contact c1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

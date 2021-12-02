@@ -1,0 +1,31 @@
+package com.tell.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.tell.model.Crop;
+import com.tell.service.CropServiceRepository;
+
+@RestController
+public class CropController {
+@Autowired
+private CropServiceRepository cropService;
+
+
+@PostMapping("/addCropDetails")
+public Crop addCrop(@RequestBody Crop c) {
+
+    Crop c1= cropService.save(c);
+	return c1;
+	
+}
+@RequestMapping("/addCropDetails/{id}")
+public Crop addCrop(@PathVariable String id) {
+	return cropService.addCrop(id);
+}
+}

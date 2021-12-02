@@ -1,0 +1,9 @@
+package com.mongodb.repo;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.mongodb.model.Employee;
+
+public interface EmployeeRepository extends MongoRepository<Employee,String>{
+
+}

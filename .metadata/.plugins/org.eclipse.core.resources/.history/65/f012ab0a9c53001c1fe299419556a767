@@ -1,0 +1,46 @@
+package com.tell.model;
+
+import java.util.Objects;
+
+public class Items {
+private String cropName;
+private double Price;
+private String Quantity;
+
+
+public Items() {
+	super();
+	
+}
+
+public Items(String cropName, double price, String quantity) {
+	super();
+	this.cropName = cropName;
+	this.Price = price;
+	this.Quantity = quantity;
+}
+
+public String getCropName() {
+	return cropName;
+}
+public void setCropName(String cropName) {
+	this.cropName = cropName;
+}
+public double getPrice() {
+	return Price;
+}
+public void setPrice(double price) {
+	this.Price = price;
+}
+public String getQuantity() {
+	return Quantity;
+}
+public void setQuantity(String quantity) {
+	this.Quantity = quantity;
+}
+@Override
+public int hashCode() {
+	return Objects.hash(cropName, Price, Quantity);
+}
+
+}

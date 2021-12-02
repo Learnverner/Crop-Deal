@@ -1,0 +1,47 @@
+package com.tell.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.tell.model.Cart;
+import com.tell.model.CropDetails;
+
+
+
+@RestController
+@RequestMapping("/cart")
+public class CartController {
+
+	@Autowired
+	RestTemplate restTemplate;
+	@GetMapping("/getAllCarts")
+	public List<Cart> getAllCarts(){
+		return restTemplate.getAllCarts();		
+}
+	@PostMapping("/addCart")
+	public Cart save(@RequestBody Cart cart) {
+		return  restTemplate.save(cart);
+	}
+	@GetMapping("/getCart/{id}")
+	public Optional<Cart> getCart(@PathVariable String id){
+		return restTemplate.getCartById(id);
+	}
+	@PutMapping("/updateCart/{id}")
+	public String updateCropDetails(@RequestBody Cart cart, @PathVariable String id) {
+		restTemplate.getCartById(id);
+		restTemplate.save(cart);
+		return "Update cropdetails with id: "+id;
+		
+	}
+}	
+

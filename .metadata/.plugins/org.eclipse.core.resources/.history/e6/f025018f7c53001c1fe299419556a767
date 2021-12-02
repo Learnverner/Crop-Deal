@@ -1,0 +1,5 @@
+package com.tell.exception;
+
+public class EmptyInputExceptions extends Exception {
+
+}

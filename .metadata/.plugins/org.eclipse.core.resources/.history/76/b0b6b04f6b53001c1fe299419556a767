@@ -1,0 +1,30 @@
+package com.tell;
+
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.repository.support.Repositories;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.mongodb.connection.Stream;
+import com.tell.repository.CropDetailsRepository;
+import com.tell.service.CropService;
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class CropDetailsApplicationTests {
+
+	@Autowired
+	private CropService cropService;
+	@MockBean
+	private CropDetailsRepository cropDetailsRepository;
+
+    
+	public void getAllTest() {
+		when(Repositories.findAll()).thenReturn(Stream.of)
+	}
+
+}

@@ -1,0 +1,58 @@
+package com.tell.exceptions;
+
+public class EmptyInputExceptions extends Exception {
+	
+	private static final long serialVersionUID = 1L;
+	private String ErrorCode;
+	 private String ErrorMessage;
+	 
+	 
+	 
+	public EmptyInputExceptions() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public EmptyInputExceptions(String message, Throwable cause, boolean enableSuppression,
+			boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+	public EmptyInputExceptions(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+	public EmptyInputExceptions(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+	public EmptyInputExceptions(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+	public EmptyInputExceptions(String errorCode, String errorMessage) {
+		super();
+		ErrorCode = errorCode;
+		ErrorMessage = errorMessage;
+	}
+	public String getErrorCode() {
+		return ErrorCode;
+	}
+	public void setErrorCode(String errorCode) {
+		ErrorCode = errorCode;
+	}
+	public String getErrorMessage() {
+		return ErrorMessage;
+	}
+	public void setErrorMessage(String errorMessage) {
+		ErrorMessage = errorMessage;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	@Override
+	public String toString() {
+		return "EmptyInputExceptions [ErrorCode=" + ErrorCode + ", ErrorMessage=" + ErrorMessage + "]";
+	}
+	 
+	 
+}

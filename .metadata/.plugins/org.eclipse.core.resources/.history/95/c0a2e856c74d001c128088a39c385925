@@ -1,0 +1,33 @@
+package com.tell;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+import com.tell.inter.MovieRepository;
+import com.tell.model.Movie;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class MovieInfoServiceApplication implements CommandLineRunner{
+ @Autowired private MovieRepository movieRepository;
+	public static void main(String[] args) {
+		SpringApplication.run(MovieInfoServiceApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		Movie m1=new Movie("1","Avengers");
+		Movie m2=new Movie("2","Iron Man");
+		movieRepository.save(m1);
+		movieRepository.save(m2);
+List<Movie>movies=movieRepository.findAll();
+for (Movie m:movies) {
+	System.out.println(m.toString());
+}
+}
+}

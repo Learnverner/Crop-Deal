@@ -1,0 +1,6 @@
+spring.application.name=Eureka-with-api-gateway
+server.port=9100
+
+zuul.routes.movie-info-service.url=http://localhost:8082/movies/
+zuul.routes.ratings-data-service.url=http://localhost:8085/ratingsdata/user/
+zuul.routes.movie-catalog-services.url=http://localhost:9000/catalog/

@@ -1,0 +1,12 @@
+package com.tell.services;
+
+import java.util.List;
+
+import com.tell.model.Cart;
+public interface CartService {
+	
+	public Cart getCartById(int cartId);
+	public Cart updateCart( Cart cart);
+	public List<Cart>getAllCarts();
+	public double cartTotal( Cart cart);
+}

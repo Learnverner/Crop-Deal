@@ -1,0 +1,43 @@
+package com.tell.model;
+
+import org.springframework.data.annotation.Id;
+
+public class OrderDetails {
+@Id
+private int orderDetailsId;
+private String orderQuantity;
+private String totalPrice;
+
+
+
+public OrderDetails(int orderDetailsId, String orderQuantity, String totalPrice) {
+	super();
+	this.orderDetailsId = orderDetailsId;
+	this.orderQuantity = orderQuantity;
+	this.totalPrice = totalPrice;
+}
+@Override
+public String toString() {
+	return "OrderDetails [orderDetailsId=" + orderDetailsId + ", orderQuantity=" + orderQuantity + ", totalPrice="
+			+ totalPrice + "]";
+}
+public int getOrderDetailsId() {
+	return orderDetailsId;
+}
+public void setOrderDetailsId(int orderDetailsId) {
+	this.orderDetailsId = orderDetailsId;
+}
+public String getOrderQuantity() {
+	return orderQuantity;
+}
+public void setOrderQuantity(String orderQuantity) {
+	this.orderQuantity = orderQuantity;
+}
+public String getTotalPrice() {
+	return totalPrice;
+}
+public void setTotalPrice(String totalPrice) {
+	this.totalPrice = totalPrice;
+}
+
+}

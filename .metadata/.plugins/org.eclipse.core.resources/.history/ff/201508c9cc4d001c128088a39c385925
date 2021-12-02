@@ -1,0 +1,25 @@
+package com.tell;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import com.tell.inter.MovieRepository;
+import com.tell.model.Movie;
+
+@SpringBootApplication
+@EnableEurekaClient
+@EnableMongoRepositories
+public class MovieInfoServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MovieInfoServiceApplication.class, args);
+	}
+
+
+}

@@ -1,0 +1,8 @@
+package com.tell.service;
+
+import com.tell.repository.CropRepository;
+
+public interface CropServiceRepository extends CropRepository{
+
+
+}

@@ -1,0 +1,58 @@
+package com.tell.model;
+
+import java.util.Objects;
+
+public class Items {
+private String cropName;
+private double price;
+private int quantity;
+
+
+public Items() {
+	super();
+	
+}
+
+public Items(String cropName, double price, int quantity) {
+	super();
+	this.cropName = cropName;
+	this.price = price;
+	this.quantity = quantity;
+}
+
+public String getCropName() {
+	return cropName;
+}
+public void setCropName(String cropName) {
+	this.cropName = cropName;
+}
+public double getPrice() {
+	return price;
+}
+public void setPrice(double price) {
+	this.price = price;
+}
+public int getQuantity() {
+	return quantity;
+}
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
+@Override
+public int hashCode() {
+	return Objects.hash(cropName, price, quantity);
+}
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Items other = (Items) obj;
+	return Objects.equals(cropName, other.cropName)
+			&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price) && quantity == other.quantity;
+}
+
+}

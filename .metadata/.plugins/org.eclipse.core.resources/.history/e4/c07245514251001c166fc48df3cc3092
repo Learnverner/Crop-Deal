@@ -1,0 +1,3 @@
+spring.data.mongodb.uri=mongodb+srv://Prati:pratu@test.9vpeq.mongodb.net/Crop?retryWrites=true&w=majority
+spring.data.mongodb.database=Crop
+server.port=9000

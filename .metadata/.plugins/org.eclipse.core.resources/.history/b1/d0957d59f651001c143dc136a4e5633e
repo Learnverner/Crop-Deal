@@ -1,0 +1,48 @@
+package com.tell.service;
+
+import com.tell.model.Crop;
+import com.tell.repository.CropRepository;
+
+@Service
+public class CropServiceImpl implements CropService{
+	@Autowired
+	private CropRepository cropRepository ;
+	
+	//save the cropdetails
+		@Override
+		public Crop save( Crop crop) {
+			Crop e =  cropRepository.save(crop);
+			return e;
+			
+//			cropDetailsRepository.save(cropdetails);
+//			return ("Added cropdetails with id: " + cropdetails.getCropID());
+		}
+		
+		//find all cropdetails
+		@Override
+		public List<CropDetails> getAll(){
+			return cropRepository.findAll();
+		}
+		
+		//find the cropdetails by id
+		@Override
+		public Optional<CropDetails> getCropDetailsById(int id){
+			return cropRepository.findById(id);
+		}
+		
+		//delete the cropdetails by id
+		@Override 
+		public String deleteCropDetails( int id) {
+			cropDetailsRepository.deleteById(id);
+			 return "Delete cropdetails with id: "+id;
+		}
+		
+		//update the cropdetails by id
+		@Override
+		public String updateCropDetails( CropDetails cropdetails,  int id) {
+			cropRepository.findById(id);
+			cropRepository.save(cropdetails);
+			return "Update cropdetails with id: "+id;
+			
+		}
+}

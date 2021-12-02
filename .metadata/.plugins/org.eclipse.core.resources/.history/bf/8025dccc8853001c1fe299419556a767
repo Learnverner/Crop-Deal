@@ -1,0 +1,74 @@
+package com.tell.model;
+
+import java.util.Objects;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document("CartManagement")
+public class Cart {
+@Id
+private int cartId;
+private double totalPrice;
+private Items Items;
+
+public Cart() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public Cart(int cartId, double totalPrice, com.tell.model.Items items) {
+	super();
+	this.cartId = cartId;
+	this.totalPrice = totalPrice;
+	Items = items;
+}
+
+@Override
+public String toString() {
+	return "Cart [cartId=" + cartId + ", totalPrice=" + totalPrice + ", Items=" + Items + "]";
+}
+
+public int getCartId() {
+	return cartId;
+}
+
+public void setCartId(int cartId) {
+	this.cartId = cartId;
+}
+
+public double getTotalPrice() {
+	return totalPrice;
+}
+
+public void setTotalPrice(double totalPrice) {
+	this.totalPrice = totalPrice;
+}
+
+public Items getItems() {
+	return Items;
+}
+
+public void setItems(Items items) {
+	Items = items;
+}
+
+@Override
+public int hashCode() {
+	return Objects.hash(Items, cartId, totalPrice);
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Cart other = (Cart) obj;
+	return Objects.equals(Items, other.Items) && cartId == other.cartId
+			&& Double.doubleToLongBits(totalPrice) == Double.doubleToLongBits(other.totalPrice);
+}
+
+
+}

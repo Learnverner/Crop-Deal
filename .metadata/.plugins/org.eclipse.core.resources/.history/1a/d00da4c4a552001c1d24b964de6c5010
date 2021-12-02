@@ -1,0 +1,5 @@
+package com.tell.repository;
+
+public class CartRepository extends MongoRepository<OrderDetails,Integer> {
+
+}

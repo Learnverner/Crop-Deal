@@ -1,0 +1,50 @@
+package com.tell.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.tell.model.Crop;
+
+@Service
+public class CropService {
+	@PostMapping("/addCropDetails")
+	public Crop addCrop(@RequestBody Crop c) {
+
+	    Crop c1= cropService.save(c);
+		return c1;
+		
+	}
+	public Optional<Crop> searchCropById(@PathVariable("id") String id){
+		Optional<Crop> crop=cropService.findById(id);
+		return cropService;
+		}
+
+	@DeleteMapping("/deleteCropDetails/{id}")
+	public void deleteCrop(@PathVariable String id) {
+		cropService.deleteCrop(id);
+		
+	}
+
+	@GetMapping("/findall")
+	public List<Crop> findCrop(){
+		
+		return (List<Crop>) cropService.findAll();
+	}
+
+
+	@PutMapping("/update")
+	public Crop updateCrop(@RequestBody Crop crop,@PathVariable String id) {
+		
+		cropService.updateCrop(id,crop);
+		
+	}
+
+}

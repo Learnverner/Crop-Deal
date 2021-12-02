@@ -1,0 +1,61 @@
+package com.tell.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.tell.model.Crop;
+import com.tell.service.CropService;
+import com.tell.service.CropServiceImpl;
+
+@RestController
+@RequestMapping("/cropdetails")
+public class CropDetailsController {
+
+	@Autowired
+	CropServiceImpl cropServiceImpl ;
+
+	//save the cropdetails
+	@PostMapping("/savecropdetails")
+	public Crop save(@RequestBody Crop crop) {
+		return  cropServiceImpl.save(crop);
+	}
+	
+	//find all cropdetails
+	@GetMapping("/findAllcropdetails")
+	public List<Crop> getAll(){
+		return cropServiceImpl.getAll();
+	}
+	
+	//find the cropdetails by id
+	@GetMapping("/findAllCropDetails/{id}")
+	public Optional<Crop> getCrop(@PathVariable int id){
+		return cropServiceImpl.getCropById(id);
+	}
+	
+	//delete the cropdetails by id
+	@DeleteMapping("/delete/{id}")
+	public String deleteCrop(@PathVariable int id) {
+		cropServiceImpl.deleteCrop(id);
+		 return "Delete cropdetails with id: "+id;
+	}
+	
+	//update the cropdetails by id
+	@PutMapping("/update/{id}")
+	public String updateCrop(@RequestBody Crop crop, @PathVariable int id) {
+		cropServiceImpl.getCropById(id);
+		cropServiceImpl.save(crop);
+		return "Update cropdetails with id: "+id;
+		
+	}
+}

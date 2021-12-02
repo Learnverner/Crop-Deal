@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: movie-info-services
+
+server:
+  port: 8082
+

@@ -1,0 +1,30 @@
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    ratings-data-service:
+      path: /ratingsdata/**
+      url: http://localhost:8085
+    movie-info-service:
+      path: /movies/**
+      url:http://localhost:8082
+    movie-catalog-service:
+      path:/catalog/**
+      url:http://localhost:9000
+    discovery-server-1:
+      path:
+      service-id: DISCOVERY-CLIENT    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+  instance:
+    hostname: localhost
+
+server:
+  port: 8079
+
+spring:
+  application:
+    name: Eureka-with-api-gateway

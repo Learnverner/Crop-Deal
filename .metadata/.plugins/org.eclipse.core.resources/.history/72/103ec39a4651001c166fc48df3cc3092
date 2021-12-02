@@ -1,0 +1,7 @@
+package com.tell.controller;
+
+import com.tell.repository.CropRepository;
+
+public interface CropServiceRepo extends CropRepository{
+
+}

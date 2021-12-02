@@ -1,0 +1,16 @@
+package com.tell.controller;
+
+import org.apache.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class CropDetailsNotFoundController {
+
+	@ExceptionHandler(value = CropDetailsNotFoundException.class)
+	public ResponseEntity<Object> exception(CropDetailsNotFoundException exception)
+	{
+		return new ResponseEntity<>("Employee not found", HttpStatus.NOT_FOUND);
+	}
+}

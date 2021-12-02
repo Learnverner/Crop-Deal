@@ -1,0 +1,9 @@
+package com.tell.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.tell.model.OrderDetails;
+
+public interface CartRepository extends MongoRepository<OrderDetails, Integer>{
+
+}

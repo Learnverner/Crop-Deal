@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Movie.java&apos; to &apos;movie-catalog-services-1/src/main/java/com.tell.model&apos;&#x0D;&#x0A;- Original project: &apos;movie-info-service-1&apos;&#x0D;&#x0A;- Destination element: &apos;movie-catalog-services-1/src/main/java/com.tell.model&apos;&#x0D;&#x0A;- Original element: &apos;com.tell.model.Movie.java&apos;" description="Copy compilation unit" destination="=movie-catalog-services-1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tell.model" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tell.model{Movie.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1637689757058" units="1" version="1.0"/>
+</session>
