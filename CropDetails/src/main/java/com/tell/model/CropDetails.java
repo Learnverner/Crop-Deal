@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("CropDetails")
 public class CropDetails {
 @Id
- private String cropId;	
+ private int cropId;	
  private String cropType;
  private String cropName;
  private String cropPrice;
@@ -23,18 +23,21 @@ public String toString() {
 
 
 
-//Construcor is created with field
-public CropDetails(String cropId, String cropName, String cropPrice, String cropType, String cropQuantity,
-		com.tell.model.location location, String uploaded_by) {
+
+
+public CropDetails(int cropId, String cropType, String cropName, String cropPrice, String cropQuantity,
+		String uploaded_by, com.tell.model.location location) {
 	super();
 	this.cropId = cropId;
+	this.cropType = cropType;
 	this.cropName = cropName;
 	this.cropPrice = cropPrice;
-	this.cropType = cropType;
 	this.cropQuantity = cropQuantity;
-	this.location = location;
 	this.uploaded_by = uploaded_by;
+	this.location = location;
 }
+
+
 
 
 
@@ -45,10 +48,10 @@ public CropDetails() {
 
 
 //getters and setters are created
-public String getCropId() {
+public int getCropId() {
 	return cropId;
 }
-public void setCropId(String cropId) {
+public void setCropId(int cropId) {
 	this.cropId = cropId;
 }
 public String getCropName() {

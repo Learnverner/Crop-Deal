@@ -20,7 +20,7 @@ import com.tell.service.CropService;
 
 @RestController
 @RequestMapping("/api/cropdetails")
-public class CropDetailsController {
+public class FarmerController {
 
 	@Autowired
 	CropService cropService ;
@@ -39,20 +39,20 @@ public class CropDetailsController {
 	
 	//find the cropdetails by id
 	@GetMapping("/findAllCropDetails/{id}")
-	public Optional<CropDetails> getCropDetails(@PathVariable String id){
+	public Optional<CropDetails> getCropDetails(@PathVariable int id){
 		return cropService.getCropDetailsById(id);
 	}
 	
 	//delete the cropdetails by id
 	@DeleteMapping("/delete/{id}")
-	public String deleteCropDetails(@PathVariable String id) {
+	public String deleteCropDetails(@PathVariable int id) {
 		cropService.deleteCropDetails(id);
 		 return "Delete cropdetails with id: "+id;
 	}
 	
 	//update the cropdetails by id
 	@PutMapping("/update/{id}")
-	public String updateCropDetails(@RequestBody CropDetails cropdetails, @PathVariable String id) {
+	public String updateCropDetails(@RequestBody CropDetails cropdetails, @PathVariable int id) {
 		cropService.getCropDetailsById(id);
 		cropService.save(cropdetails);
 		return "Update cropdetails with id: "+id;
@@ -63,5 +63,10 @@ public class CropDetailsController {
 	@GetMapping("/findAllCrops/{cropName}")
 	public Optional<CropDetails> getCropDetailsByName(@PathVariable String cropName){
 		return cropService.getCropDetailsByName(cropName);
+	}
+	
+	@GetMapping("/findAllCropsByType/{cropType}")
+	public Optional<CropDetails>getCropDetailsByType(@PathVariable String cropType){
+		return cropService.getCropDetailsByType(cropType);
 	}
 }

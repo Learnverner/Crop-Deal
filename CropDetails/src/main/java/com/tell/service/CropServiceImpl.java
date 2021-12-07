@@ -44,7 +44,7 @@ public class CropServiceImpl implements CropService{
 		
 		//find the cropdetails by id
 		@Override
-		public Optional<CropDetails> getCropDetailsById(String id){
+		public Optional<CropDetails> getCropDetailsById(int id){
 			Optional<CropDetails> findById= cropDetailsRepository.findById(id);
 			if(findById.isEmpty() ) {
 				throw new CropDetailsNotFoundException("603","Data is not found in DB");
@@ -56,7 +56,7 @@ public class CropServiceImpl implements CropService{
 		
 		//delete the cropdetails by id
 		@Override 
-		public String deleteCropDetails( String id) {
+		public String deleteCropDetails( int id) {
 			boolean isCropExist=cropDetailsRepository.existsById(id);
 			if(isCropExist) {
 				cropDetailsRepository.deleteById(id);
@@ -71,7 +71,7 @@ public class CropServiceImpl implements CropService{
 		
 		//update the cropdetails by id
 		@Override
-		public String updateCropDetails( CropDetails cropdetails, String id) {
+		public String updateCropDetails( CropDetails cropdetails, int id) {
 			boolean isCropExist=cropDetailsRepository.existsById(id);
 			if(isCropExist)
 				{
@@ -89,11 +89,12 @@ public class CropServiceImpl implements CropService{
 		public Optional<CropDetails>getCropDetailsByName(String cropName){
 			return cropDetailsRepository.findByCropName( cropName);
 		}
-
-		@Override
-		public boolean isCropDetailsExist(String id) {
-			// TODO Auto-generated method stub
-			return false;
-		}		
 		
+		
+		@Override
+		public Optional<CropDetails>getCropDetailsByType(String cropType){
+			return cropDetailsRepository.findByCropType(cropType);
+		}
+
+	
 }

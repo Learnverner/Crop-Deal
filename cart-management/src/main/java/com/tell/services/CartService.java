@@ -4,11 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import com.tell.model.Cart;
+import com.tell.model.Items;
 public interface CartService {
 	
 	public Cart save( Cart cart);
 	 public Optional<Cart> getCartById(int id);
-	 public String updateCart( Cart cart, int id);
+	
 	public List<Cart>getAllCarts();
-	public Cart additemtocart( Cart cart);
+	
+	public String updateCartDetails( Cart cart, int id);
+	public String deleteCartDetails( int id);
+	
 }
