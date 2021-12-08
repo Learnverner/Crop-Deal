@@ -44,22 +44,22 @@ public class CropServiceImpl implements CropService{
 		
 		//find the cropdetails by id
 		@Override
-		public Optional<CropDetails> getCropDetailsById(int id){
-			Optional<CropDetails> findById= cropDetailsRepository.findById(id);
+		public Optional<CropDetails> getCropDetailsById(int cropId){
+			Optional<CropDetails> findById= cropDetailsRepository.findById(cropId);
 			if(findById.isEmpty() ) {
 				throw new CropDetailsNotFoundException("603","Data is not found in DB");
 			}
 			else {
-				return cropDetailsRepository.findById(id);
+				return cropDetailsRepository.findById(cropId);
 			}
 		}
 		
 		//delete the cropdetails by id
 		@Override 
-		public String deleteCropDetails( int id) {
-			boolean isCropExist=cropDetailsRepository.existsById(id);
+		public String deleteCropDetails( int cropId) {
+			boolean isCropExist=cropDetailsRepository.existsById(cropId);
 			if(isCropExist) {
-				cropDetailsRepository.deleteById(id);
+				cropDetailsRepository.deleteById(cropId);
 				return "CropDetails deleted";
 			}
 			else {
@@ -71,12 +71,12 @@ public class CropServiceImpl implements CropService{
 		
 		//update the cropdetails by id
 		@Override
-		public String updateCropDetails( CropDetails cropdetails, int id) {
-			boolean isCropExist=cropDetailsRepository.existsById(id);
+		public String updateCropDetails( CropDetails cropDetails, int cropId) {
+			boolean isCropExist=cropDetailsRepository.existsById(cropId);
 			if(isCropExist)
 				{
-				cropDetailsRepository.save(cropdetails);
-				return "Update cropdetails with id: "+id;
+				cropDetailsRepository.save(cropDetails);
+				return "Update cropdetails with id: "+cropId;
 				}
 			else {
 				throw new CropDetailsNotFoundException("603","Data is not found in DB");

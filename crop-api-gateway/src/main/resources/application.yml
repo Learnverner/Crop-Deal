@@ -14,11 +14,11 @@ spring:
         predicates:
         - Path=/api/**          
       - id: cartmanagement
-        uri: http://localhost:9200
+        uri: http://localhost:9200/
         predicates:
         - Path=/api/** 
       - id: ordersystem
-        uri: http://localhost:9300
+        uri: http://localhost:9300/
         predicates:
         - Path=/api/**   
   application:
