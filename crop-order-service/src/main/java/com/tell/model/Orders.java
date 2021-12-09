@@ -50,6 +50,12 @@ public Orders(int orderId, LocalDate orderDate, int customerId, double amountPai
 
 
 
+public Orders(int i, String string, int j, int k, String string2, String string3, int l, int m, String string4,
+		String string5, String string6, String string7, String string8, int n) {
+	// TODO Auto-generated constructor stub
+}
+
+
 //getters and setters
 public int getOrderId() {
 	return orderId;
@@ -150,6 +156,12 @@ public String toString() {
 	return "Orders [orderId=" + orderId + ", orderDate=" + orderDate + ", customerId=" + customerId + ", amountPaid="
 			+ amountPaid + ", modeOfPayment=" + modeOfPayment + ", orderStatus=" + orderStatus + ", quantity="
 			+ quantity + ", cropDetails=" + cropDetails + ", address=" + address + "]";
+}
+
+
+public void setOrderId(String string) {
+	// TODO Auto-generated method stub
+	
 }
 
 

@@ -35,7 +35,7 @@ public class DealerServiceImpl implements DealerService {
 			
 			//find the cropdetails by id
 			@Override
-			public Optional<CropDetails> getCropDetailsById1(int cropId){
+			public Optional<CropDetails> getCropDetailsById1(String cropId){
 				Optional<CropDetails> findById= cropDetailsRepository.findById(cropId);
 				if(findById.isEmpty() ) {
 					throw new CropDetailsNotFoundException("603","Data is not found in DB");

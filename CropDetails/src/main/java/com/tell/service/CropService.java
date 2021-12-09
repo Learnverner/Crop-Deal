@@ -8,9 +8,9 @@ public interface CropService {
 	
 	public CropDetails save( CropDetails cropdetails);
 	public List<CropDetails> getAll();
-	public Optional<CropDetails> getCropDetailsById(int cropId);
-	public String deleteCropDetails( int cropId);
-	public String updateCropDetails( CropDetails cropDetails, int cropId);
+	public Optional<CropDetails> getCropDetailsById(String cropId);
+	public String deleteCropDetails( String cropId);
+	public String updateCropDetails( CropDetails cropDetails, String cropId);
 	public Optional<CropDetails>getCropDetailsByName(String cropName);
 	Optional<CropDetails> getCropDetailsByType(String cropType);
 	

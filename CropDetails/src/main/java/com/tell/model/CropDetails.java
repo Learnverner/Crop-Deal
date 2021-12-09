@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("CropDetails")
 public class CropDetails {
 @Id
- private int cropId;	
+ private String cropId;	
  private String cropType;
  private String cropName;
  private String cropPrice;
@@ -25,7 +25,7 @@ public String toString() {
 
 
 
-public CropDetails(int cropId, String cropType, String cropName, String cropPrice, String cropQuantity,
+public CropDetails(String cropId, String cropType, String cropName, String cropPrice, String cropQuantity,
 		String uploaded_by, com.tell.model.location location) {
 	super();
 	this.cropId = cropId;
@@ -47,11 +47,20 @@ public CropDetails() {
 }
 
 
+public CropDetails(int i, String cropType2, String cropName2, String cropPrice2, String cropQuantity2,
+		String uploaded_by2, com.tell.model.location location2) {
+	// TODO Auto-generated constructor stub
+}
+
+
+
+
+
 //getters and setters are created
-public int getCropId() {
+public String getCropId() {
 	return cropId;
 }
-public void setCropId(int cropId) {
+public void setCropId(String cropId) {
 	this.cropId = cropId;
 }
 public String getCropName() {

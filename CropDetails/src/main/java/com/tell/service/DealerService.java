@@ -9,7 +9,7 @@ public interface DealerService {
 
 	List<CropDetails> getAll1();
 
-	Optional<CropDetails> getCropDetailsById1(int cropId);
+	Optional<CropDetails> getCropDetailsById1(String cropId);
 
 	Optional<CropDetails> getCropDetailsByName1(String cropName);
 

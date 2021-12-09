@@ -2,6 +2,7 @@ package com.tell.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tell.model.Orders;
 import com.tell.service.OrderService;
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api/dealer")
 public class OrderController {
 
 	@Autowired
@@ -33,7 +34,7 @@ public class OrderController {
 
 	@PostMapping("/addOrder")
 	public Orders addOrder(@RequestBody Orders order) {
-
+  
 	return orderService.addOrder(order);
 	}
 

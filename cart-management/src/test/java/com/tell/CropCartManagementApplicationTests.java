@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tell.exceptions.EmptyInputExceptions;
@@ -25,28 +26,29 @@ class CropCartManagementApplicationTests {
 	@Autowired
 	 private CartService cartService;
 	
-	@Autowired
+	@MockBean
 	private CartRepository cartRepository;
 
-/*	@Test
-	public Cart getAllCartsTest()
-	{
-		when(cartRepository.findAll()).thenReturn(Stream.of
-				(new Cart(2,1000,Arrays.asList(new Items("Banana",100.0,10))))
-				.collect(Collectors.toList()));
-				assertEquals(1,cartService.getAllCarts().size());
-				
-				}
-*/
-
-	
+	// get all card
 	@Test
-	public Cart save() throws EmptyInputExceptions
+	public void getAllCartTest()
 	{
-		Cart cart = new Cart(2,1000,Arrays.asList(new Items("Banana",100.0,10)));
+	when(cartRepository.findAll()).thenReturn(Stream.of
+	(new Cart(2,1000.0,Arrays.asList(new Items("Apple",20000.0,3))),new Cart(2,1000.0,
+	Arrays.asList(new Items("Chickoo",10000.0,3))))
+	.collect(Collectors.toList()));
+	assertEquals(2,cartService.getAllCarts().size());
+	}
+	
+	
+	
+	//add cart
+	@Test
+	public void addCart()
+	{
+	Cart cart = new Cart(2,1000.0,Arrays.asList(new Items("Banana",100.0,3)));
 	when(cartRepository.save(cart)).thenReturn(cart);
 	assertEquals(cart,cartService.save(cart));
-	return cart;
-	}
-	}
 
+	 }
+}

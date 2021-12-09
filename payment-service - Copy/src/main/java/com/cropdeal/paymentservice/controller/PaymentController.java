@@ -29,7 +29,7 @@ public class PaymentController{
 		return "home";
 	}
 
-	 @PostMapping(value = "/submitPaymentDetail")
+	 @PostMapping(value = "/pgredirect")
 	    public ModelAndView getRedirect(@RequestParam(name = "CUST_ID") String customerId,
 	                                    @RequestParam(name = "TXN_AMOUNT") String transactionAmount,
 	                                    @RequestParam(name = "ORDER_ID") String orderId) throws Exception {

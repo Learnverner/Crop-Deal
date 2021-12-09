@@ -2,6 +2,7 @@ package com.tell.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,6 +35,7 @@ public class CropDetailsController {
 	//add the cropdetails-->farmer
 	@PostMapping("/add")
 	public CropDetails save( CropDetails cropdetails) {
+		cropdetails.setCropId(UUID.randomUUID().toString());
 		return cropService.save(cropdetails);
 	}
 	
@@ -41,12 +43,12 @@ public class CropDetailsController {
 	
 	//update the cropDetails-->farmer
 	@PutMapping("/update/{cropId}")
-	public String updateCropDetails(@RequestBody CropDetails cropdetails,@PathVariable int cropId) {
+	public String updateCropDetails(@RequestBody CropDetails cropdetails,@PathVariable String cropId) {
 		return cropService.updateCropDetails(cropdetails, cropId);
 	}
 	//delete the cropDetails-->farmer
 	@DeleteMapping("/delete/{cropId}")
-	public String deleteCropDetails(@PathVariable int cropId) {
+	public String deleteCropDetails(@PathVariable String cropId) {
 		return cropService.deleteCropDetails(cropId);
 	}
 	
@@ -62,7 +64,7 @@ public class CropDetailsController {
 		
 		//find the cropdetails by id-->farmer
 		@GetMapping("/findAllCropDetails/{cropId}")
-		public Optional<CropDetails> getCropDetails(@PathVariable int cropId){
+		public Optional<CropDetails> getCropDetails(@PathVariable String cropId){
 			return cropService.getCropDetailsById(cropId);
 		}
 		
@@ -97,7 +99,7 @@ public class CropDetailsController {
 				
 				//find the cropdetails by id-->dealer
 				@GetMapping("/findAllCropDetailsDealer/{cropId}")
-				public Optional<CropDetails> getCropDetails1(@PathVariable int cropId){
+				public Optional<CropDetails> getCropDetails1(@PathVariable String cropId){
 					return dealerService.getCropDetailsById1(cropId);
 				}
 				

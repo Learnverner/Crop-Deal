@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.tell.model.CropDetails;
 @Repository
-public interface CropDetailsRepository extends MongoRepository<CropDetails,Integer>{
+public interface CropDetailsRepository extends MongoRepository<CropDetails,String>{
 
 	Optional<CropDetails> findByCropName(String cropName);
 
